@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Details</title>
+</head>
+<body>
+	{{my_question}}</br>
+	{{my_question.id}}</br>
+	{{my_question.pk}}</br>
+	{{my_question.pub_date}}</br>
+	{{my_question.question_text}}
+
+	<ul>
+		{% for choice in my_question.choice_set.all %}
+			<li><a href="{% url 'polls:detail' my_question.id %}">{{choice.choice_text}} {{choice.votes}}</a></li>
+			<!--	to use namespace like polls:detail you need to implement app_name = 'polls'  in polls/urls.py	--->
+
+
+		{% endfor %}
+	</ul>
+
+</html>

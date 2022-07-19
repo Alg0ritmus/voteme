@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,300&display=swap');
+
+
+*{	
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-family: 'Poppins', sans-serif;
+}
+
+
+body{
+	overflow: none;
+	background: url("images/waves.svg") no-repeat;
+	background-position: -60px -35px;
+	background-size: 600px 350px;
+}
+
+
+h1{
+	margin-top: 3em;
+}
+
+
+input{
+	outline: none;
+	background: white;
+	border: 1px solid #FF35A8;
+	
+}
+
+.content{
+	width: 60%;
+	max-width: 900px;
+	margin: 3em auto;
+}
+
+.form-wrapper{
+	margin-top: 4em;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+
+.form-control{
+	position: relative;
+	padding-left: 13px;
+	height: 2em !important;
+  	width: 20em;
+}
+.choices-field{
+	display: grid;
+	grid-template-columns: 50% 50%;
+	grid-gap: 1em;
+	margin-bottom: 2em;
+}
+
+.form-title{
+	width:16.7em;
+	margin-bottom: 3em;
+	font-size: 1em !important;
+	padding: 4px 0 0 13px;
+}
+
+
+
+.form-control-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 0.7em;
+  padding: 4px 0 0 13px;
+  transition: all 200ms;
+  opacity: 0.5;
+}
+
+.input-field{
+	position: relative;
+}
+
+.form-title-ph{
+	font-size: 0.7em;
+	padding: 4px 0 0 13px;
+}
+.form-control:focus + .form-control-placeholder,
+.form-control:valid + .form-control-placeholder {
+  font-size: 75%;
+  transform: translate3d(-25%, -100%, 0);
+  color:#FF35A8;
+  opacity: 1;
+}
+
+
+.form-btn-field{
+	padding-right: 13%;
+	display: flex;
+	justify-content: space-between;
+}
+
+
+.addChoice{
+	color:#FF5EBA;
+	padding: 3px 17px;
+	font-weight: bold;
+}
+
+.submit{
+	background-color:#FF5EBA;
+	color:white;
+	padding: 3px 17px;
+	font-weight: bold;
+}
+/*NewPoll.html below*/
+
+
+.addChoice:hover,
+.submit:hover{
+	cursor: pointer;
+}

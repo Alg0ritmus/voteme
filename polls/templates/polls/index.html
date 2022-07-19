@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Polls app</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'polls/main.css' %}">
+</head>
+<body>
+	<div class="hero">
+		<h1 style="font-size: 3em;">VoteMe</h1>
+		<h3 style="font-size: 1.5em;">App for indecisive people</h3>
+	</div>
+	<a class="createNew" href="{% url 'polls:create_poll' %}">
+		<span class="pipe v"></span>
+		<span class="pipe h"></span>
+	</a>
+	<!-- <div class="filter">
+		<div class='sortBy filter-box'>
+			<h3 class="filter-text">Sort by:</h3>
+			<span class="pipe"></span>
+			<select class="filter-choice" value="choice">
+			  <option value="Today">Today</option>
+			  <option value="Week ago">Week ago</option>
+			  <option value="Month ago">Month ago</option>
+			  <option value="All">All</option>
+			</select>
+
+		</div>
+		<div class='itemOnPage filter-box'>
+			<h3 class="filter-text">On page:</h3>
+			<span class="pipe"></span>
+			<select class="filter-choice" value="5">
+			  <option value="5">5</option>
+			  <option value="10">10</option>
+			  <option value="15">15</option>
+			  <option value="20">20</option>
+			</select>
+
+		</div>
+	</div> -->
+	<div class="vote-wrapper">
+		{% if latest_question_list %}
+		{% for question in latest_question_list %}
+		<div class="vote-card">
+			<h1>{{question.question_text}}</h1>
+			<h2>Choices:</h2>
+			<form action="{% url 'polls:create_vote' question.id%}" method="POST">
+
+			{% for choice in question.choice_set.all%}
+			{% csrf_token%}
+			<div class="label-box">
+				<label>{{choice.choice_text}}</label>
+				<input type="radio"  class="choice" name="choice" value={{choice.id}}>
+				<span class="vote_counter">{{choice.votes}}</span>
+			</div>
+			{% endfor %}
+			
+			<input class="submit-btn" type="submit" name="">
+
+			</form>
+		</div>
+
+		
+		{% endfor %}
+
+		{% else %}
+		<center><p style="color: white;">No polls are available.</p></center>
+		{% endif %}
+	</div>
+</body>
+</html>
