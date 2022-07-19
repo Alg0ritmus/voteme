@@ -36,7 +36,7 @@ def create_vote(request,question_id):
 
 	
 	
-	return redirect('')
+	return redirect('/')
 
 
 def create_poll(request):
